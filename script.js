@@ -68,7 +68,6 @@ function merge(tab, temp, left, mid, right) {
 
 function isEvenInversionCount(tab) {
   if (mergeSort(tab) % 2 === 0) {
-    console.log("is even");
     return true;
   } else {
     return false;
