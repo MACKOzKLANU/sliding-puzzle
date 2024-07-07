@@ -1,3 +1,17 @@
+function generateTab(){
+    let tab = [];
+
+    while(tab.length < 9){
+
+        let random = Math.floor(Math.random() * 9);
+        
+        if(!tab.includes(random)){
+            tab.push(random);
+        }
+    }
+    return tab;
+}
+
 function mergeSort(array) {
     const temp = new Array(array.length);
     return _mergeSort(array, temp, 0, array.length - 1);
@@ -47,3 +61,5 @@ function merge(array, temp, left, mid, right) {
 const array = [5,1,4,2,3,6,7,9,8];
 const result = mergeSort(array);
 console.log("Number of inversions:", result);
+
+console.log(generateTab())
