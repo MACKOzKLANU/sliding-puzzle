@@ -12,12 +12,14 @@ function generateTab(){
     return tab;
 }
 
-function mergeSort(array) {
+function mergeSort(tab) {
+    const array = [...tab];
     const temp = new Array(array.length);
     return _mergeSort(array, temp, 0, array.length - 1);
 }
 
-function _mergeSort(array, temp, left, right) {
+function _mergeSort(tab, temp, left, right) {
+    const array = [...tab];
     let inv_count = 0;
     if (right > left) {
         const mid = Math.floor((left + right) / 2);
@@ -28,7 +30,8 @@ function _mergeSort(array, temp, left, right) {
     return inv_count;
 }
 
-function merge(array, temp, left, mid, right) {
+function merge(tab, temp, left, mid, right) {
+    const array = [...tab];
     let inv_count = 0;
     let i = left;
     let j = mid + 1;
@@ -58,8 +61,36 @@ function merge(array, temp, left, mid, right) {
     return inv_count;
 }
 
-const array = [5,1,4,2,3,6,7,9,8];
-const result = mergeSort(array);
-console.log("Number of inversions:", result);
+function isEvenInversionCount(tab){
+    if(mergeSort(tab) % 2 === 0){
+        console.log("is even")
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function createTwoDimensionalArray(tab){
+    let TwoDimensionalArray = new Array
+    if(isEvenInversionCount(tab)){
+        TwoDimensionalArray.push(tab);
+        return TwoDimensionalArray;
+    }
+    else{
+        return tab;
+    }
 
-console.log(generateTab())
+}
+
+let array = generateTab()
+
+
+console.log("Generated array: " + array)
+
+console.log("Number of inversions:", mergeSort(array));
+
+console.log(createTwoDimensionalArray(array))
+
+console.log("One/two dimensional array: " + createTwoDimensionalArray(array))
+
+
